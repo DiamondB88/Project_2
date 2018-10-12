@@ -5,6 +5,7 @@ const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
+const recipeController = require('./controllers/recipes.js');
 const db = mongoose.connection;
 //___________________
 //Port
@@ -43,14 +44,27 @@ app.use(express.json());// returns middleware that only parses JSON
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+// app.use('/recipe', recipeController)
+
 
 //___________________
 // Routes
 //___________________
 //localhost:3000  - this will reroute to `products`
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
+  res.render('home.ejs');
 });
+
+app.get('/about', (req,res) => {
+  res.render('about.ejs')
+});
+
+app.get('/new', (req,res) => {
+  res.render('new.ejs')
+})
+
+
+
 
 //___________________
 //Listener

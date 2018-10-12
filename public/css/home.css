@@ -1,0 +1,20 @@
+body{
+  background-color: rgb(1, 10, 0);
+  color: rgb(255, 0, 0);
+}
+h1{
+  font-family: 'Monoton', cursive;
+  text-align: center;
+  font-size: 150px;
+  margin-top: 150px;
+}
+nav{
+  display: flex;
+  justify-content: space-evenly;
+}
+button{
+  background: rgb(228, 1, 1);
+}
+a{
+  color: white;
+}
