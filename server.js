@@ -5,7 +5,8 @@ const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
-const recipeController = require('./controllers/recipes.js');
+const Recipe = require('./models/recipes.js')
+// const recipeController = require('./controllers/recipes.js');
 const db = mongoose.connection;
 //___________________
 //Port
@@ -51,17 +52,60 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000  - this will reroute to `products`
-app.get('/' , (req, res) => {
-  res.render('home.ejs');
+ app.get('/sizzle' , (req, res) => {
+   res.render('home.ejs');
+ });
+//
+ app.get('/sizzle/about', (req,res) => {
+   res.render('about.ejs')
+ });
+
+app.get('/recipes', (req,res) => {
+  Recipe.find({}, (err, allRecipes) => {
+    res.render('index.ejs', {
+      recipes: allRecipes
+    })
+  })
 });
 
-app.get('/about', (req,res) => {
-  res.render('about.ejs')
-});
-
-app.get('/new', (req,res) => {
+app.get('/recipes/new', (req,res) => {
   res.render('new.ejs')
+});
+
+app.post('/recipes', (req,res) => {
+  Recipe.create(req.body, (err, createdRecipe) => {
+    console.log(req.body);
+    res.redirect('/recipes')
+  })
 })
+
+app.get('/recipes/:id', (req,res) => {
+  Recipe.findById(req.params.id, (err, theRecipe) => {
+    res.render('show.ejs', {
+      recipes: theRecipe
+    })
+  })
+})
+
+app.delete('/recipes/:id',(req,res) => {
+  Recipe.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/recipes')
+  })
+})
+
+app.get('/recipes/:id/edit', (req,res) => {
+  Recipe.findById(req.params.id,(err,theRecipe) => {
+    res.render('edit.ejs', {
+      recipes: theRecipe
+    })
+  })
+})
+
+app.put('/recipes/:id', (req, res)=>{
+    Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.redirect('/recipes');
+    });
+});
 
 
 

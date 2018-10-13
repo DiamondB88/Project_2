@@ -1,0 +1,18 @@
+body{
+  background: black;
+  color: white;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+}
+nav h1{
+  font-family: 'Monoton', cursive;
+}
+nav a{
+  color: red;
+  text-decoration: none;
+}
+nav a:hover{
+  color: white;
+}

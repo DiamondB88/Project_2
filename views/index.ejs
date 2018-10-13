@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SIZZLE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+  <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <nav>
+      <button class="about"><a href="/recipes/about">About Us</a></button>
+      <h1><a href="/recipe">SIZZLE</a></h1>
+      <button class="log-out"><a href="#">Log Out</a></button>
+    </nav>
+    <div class="container">
+    <% for(let i = 0; i < recipes.length; i++){ %>
+      <div class= "recipes">
+        <div class="recipe-img">
+          <a href="/recipes/<%=recipes[i].id;%>"><img src="<%=recipes[i].img%>" alt="<%=recipes[i].title%>">
+        </a><br>
+        </div>
+        <div class="author">
+          <%=recipes[i].author%>
+        </div>
+    </div>
+    <% } %>
+    </div>
+    <button><a href="/recipes/new">Share Your Recipe</a> </button>
+  </body>
+</html>
