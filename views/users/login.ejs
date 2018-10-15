@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="/css/login.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome Back!</h1>
+      <div class="form">
+        <form action="/users" method="post">
+          <input type="email" name="email" placeholder="E-mail"><br>
+        <input type="password" name="pass" placeholder="Password"><br>
+        <div class="submit">
+          <input type="submit" value="Log In">
+        </div>
+        </form>
+        <a href="/users/new">Not a Member? <br>
+        Sign Up!</a>
+      </div>
+    </div>
+
+  </body>
+</html>

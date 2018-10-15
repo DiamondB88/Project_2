@@ -11,13 +11,15 @@
   </head>
   <body>
     <nav>
-      <button class="about"><a href="/recipes/about">About Us</a></button>
+      <button class="about"><a href="/sizzle/about">About Us</a></button>
       <form action="/recipes/<%=recipes.id;%>?_method=DELETE" method="post">
       <input type="submit" value="Delete Post">
       </form>
       <h1><a href="/recipes">SIZZLE</a></h1>
       <button class="edit"><a href="/recipes/<%=recipes.id;%>/edit">Edit Recipe</a></button>
-      <button class="log-out"><a href="#">Log Out</a></button>
+      <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="Logout"/>
+        </form>
     </nav>
     <h1><%=recipes.title;%></h1>
       <div class="container">
