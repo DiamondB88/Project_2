@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>sizzle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
@@ -11,9 +12,22 @@
   <body>
     <nav>
       <button class="about"><a href="/recipes/about">About Us</a></button>
+      <form action="/recipes/<%=recipes.id;%>?_method=DELETE" method="post">
+      <input type="submit" value="Delete Post">
+      </form>
       <h1><a href="/recipes">SIZZLE</a></h1>
+      <button class="edit"><a href="/recipes/<%=recipes.id;%>/edit">Edit Recipe</a></button>
       <button class="log-out"><a href="#">Log Out</a></button>
     </nav>
+    <h1><%=recipes.title;%></h1>
+      <div class="container">
+        <div class="instructions">
+          <p><img src="<%=recipes.image;%>" alt="<%=recipes.title;%>">
+          <%=recipes.description;%></p>
+          </div>
+        </div>
+      <footer><h5><%=recipes.author;%></h5></footer>
+
 
   </body>
 </html>

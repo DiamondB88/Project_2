@@ -74,6 +74,7 @@ app.get('/recipes/new', (req,res) => {
 
 app.post('/recipes', (req,res) => {
   Recipe.create(req.body, (err, createdRecipe) => {
+    console.log(err);
     console.log(req.body);
     res.redirect('/recipes')
   })

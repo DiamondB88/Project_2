@@ -23,15 +23,15 @@
         <form action="/recipes" method="POST" class="form">
           <fieldset class="form">
             <label for="title">Recipe Name</label>
-            <input type="text" id="title" name="title">
+            <input type="text" id="title" name="title" value="<%=recipes.title;%>">
             <label for="img">Image</label>
-            <input type="text" name="img"id="img">
+            <input type="text" name="img"id="img" value="<%=recipes.image;%>">
             <label for="author">Author</label>
-            <input type="text" id="author" name="author">
+            <input type="text" id="author" name="author" value="<%=recipes.author;%>">
           </fieldset>
           <fieldset class="description">
             <label for="recipe">Recipe</label>
-            <textarea name="description" id="recipe" placeholder="Tell us the ingredients needed for this fabulous recipe as well as the detailed instructions for preparing the dish."></textarea>
+            <textarea name="description" id="recipe" value="<%=recipes.description;%>" ></textarea>
           </fieldset>
           <input type="submit" value="Update  Your Recipe!">
         </form>
