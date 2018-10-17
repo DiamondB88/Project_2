@@ -15,6 +15,9 @@ nav a{
 nav a:hover{
   color: white;
 }
+nav input[type=submit]{
+  color: red;
+}
 input[type=submit]{
   color: red;
   border:1px solid rgb(201, 201, 201);
@@ -29,6 +32,7 @@ h1{
 }
 h5{
   color: rgb(255, 230, 230);
+  font-family: 'Sacramento', cursive;
 }
 .container{
 background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkgb6Pv_4MXE94keY-ylaAFGidlCWkwOcjvzWHjUDesKcOmArp);

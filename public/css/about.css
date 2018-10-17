@@ -3,22 +3,25 @@ body{
 
 }
 nav{
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
+}
+nav h1{
+  text-align: center;
 }
 nav h1 a{
   text-decoration: none;
   color: red;
-  font-size: 42px;
+  font-size: 52px;
   padding-left: 65PX;
   font-family: 'Monoton', cursive;
 }
 nav h1 a:hover{
   color: white;
 }
-nav button a{
+/* nav button a{
   color: white;
-}
+} */
 .container{
   width: 90vw;
   height: 80vw;
