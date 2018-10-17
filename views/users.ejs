@@ -6,25 +6,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="/css/users.css">
   </head>
   <body>
     <nav>
-      <button class="about"><a href="/sizzle/about">About Us</a></button>
       <button><a href="/recipes">SEE RECIPES</a> </button>
       <h1>SIZZLE</h1>
-      <button><a href="/recipes/new">Share Your Recipe</a> </button>
+      <!-- <button><a href="/recipes/new">Share Your Recipe</a> </button> -->
       <form action="/sessions?_method=DELETE" method="POST">
             <input type="submit" value="Logout"/>
         </form>
     </nav>
-    <h2>
-    <% if(currentUser) { %>
-        Welcome <%=currentUser.username%>!
-    <% } else { %>
-        Welcome!
-    <% } %>
-</h2>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<div class="profile-userpic">
+					<img src="data:image/jpeg;base64,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">
+				</div>
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+            <% if(currentUser) { %>
+           <%=currentUser.username%>!
+            <% } %>
+					</div>
+					<div class="profile-usertitle-job">
+						Food connoisseur
+					</div>
+				</div>
+				<div class="profile-userbuttons">
+					<button type="button" class="btn btn-success btn-sm">Follow</button>
+					<button type="button" class="btn btn-danger btn-sm">Message</button>
+				</div>
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">
+							<i class="glyphicon glyphicon-home"></i>
+							Overview </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-user"></i>
+							Account Settings </a>
+						</li>
+						<li>
+							<a href="/recipes/new">
+							<i class="glyphicon glyphicon-ok"></i>
+							Share Recipe </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-flag"></i>
+							Help </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+              <h2>
+              <% if(currentUser) { %>
+                  Welcome <%=currentUser.username%>!
+              <% } else { %>
+                  Welcome!
+              <% } %>
+          </h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+		</div>
+	</div>
+</div>
+<!-- <center>
+<strong>Powered by <a href="http://j.mp/metronictheme" target="_blank">KeenThemes</a></strong>
+</center>
+<br>
+<br> -->
+
+<!--referenced website for a user profile so user page was not blank; found a simple template
+ https://bootsnipp.com/tags/profile -->
 
 
   </body>
