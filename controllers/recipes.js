@@ -20,6 +20,7 @@ router.get('/new', (req,res) => {
 });
 
 router.post('/', (req,res) => {
+  console.log('I am Here');
   Recipe.create(req.body, (err, createdRecipe) => {
     console.log(err);
     console.log(req.body);
@@ -51,6 +52,7 @@ router.get('/:id/edit', (req,res) => {
 
 router.put('/:id', (req, res)=>{
     Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+      console.log(err);
         res.redirect('/recipes');
     });
 });

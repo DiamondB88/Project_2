@@ -21,12 +21,12 @@
         <h3>Update your recipe!</h3>
       </div>
       <div class="post">
-        <form action="/recipes" method="POST" class="form">
+        <form action="/recipes/<%=recipes.id;%>?_method=PUT" method="POST" class="form">
           <fieldset class="form">
             <label for="title">Recipe Name</label>
             <input type="text" id="title" name="title" value="<%=recipes.title;%>">
             <label for="img">Image</label>
-            <input type="text" name="img"id="img" value="<%=recipes.image;%>">
+            <input type="text" name="image"id="img" value="<%=recipes.image;%>">
             <label for="author">Author</label>
             <input type="text" id="author" name="author" value="<%=recipes.author;%>">
           </fieldset>
