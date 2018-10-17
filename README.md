@@ -1,7 +1,7 @@
 # Project_2
 ## WDIR- project_2/ SIZZLE
 
-#### [link to app](https://secret-shelf-72666.herokuapp.com/recipes)
+#### [link to app](https://secret-shelf-72666.herokuapp.com/sizzle)
 
 ### What Is Sizzle
 
