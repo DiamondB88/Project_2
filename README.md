@@ -1,7 +1,7 @@
 # Project_2
 ## WDIR- project_2/ SIZZLE
 
-![SIZZLE](public/images/Screen Shot 2018-10-17 at 12.57.54 PM.png)
+#### [link to app](https://secret-shelf-72666.herokuapp.com/recipes)
 
 ### What Is Sizzle
 
