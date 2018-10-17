@@ -24,9 +24,11 @@
     </nav>
     <h1><%=recipes.title;%></h1>
       <div class="container">
+        <div class="sidebar">
+          <img src="<%=recipes.image;%>" alt="<%=recipes.title;%>">
+        </div>
         <div class="instructions">
-          <p><img src="<%=recipes.image;%>" alt="<%=recipes.title;%>">
-          <%=recipes.description;%></p>
+          <p><%=recipes.description;%></p>
           </div>
         </div>
       <footer><h5><%=recipes.author;%></h5></footer>
