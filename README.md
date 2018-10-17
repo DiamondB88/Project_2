@@ -9,14 +9,14 @@ Sizzle is a website that has been designed for you! Yes that is right **YOU** ! 
 
 ### Technical Details
 
--NODE
--EXPRESS
--EXPRESS SESSIONS
--EJS
--BCRYPT
--MONGODB
--MONGOOSE
--CSS
+- NODE
+- EXPRESS
+- EXPRESS SESSIONS
+- EJS
+- BCRYPT
+- MONGODB
+- MONGOOSE
+- CSS
 
 ### Technical Challenges
 
