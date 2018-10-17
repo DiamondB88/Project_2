@@ -8,9 +8,10 @@ const app = express ();
 const session = require('express-session');
 // const Recipe = require('./models/recipes.js')
 const recipeController = require('./controllers/recipes.js');
-const User = require('./models/recipes.js')
-// const usersController = require('./controllers/users.js');
-// const recipeController = require('./controllers/recipes.js');
+// const User = require('./models/recipes.js');
+const usersController = require('./controllers/users.js');
+const sessionsController = require('./controllers/sessions.js');
+
 const db = mongoose.connection;
 //___________________
 //Port
@@ -47,7 +48,7 @@ app.use(express.urlencoded({ extended: true }));// extended: false - does not al
 app.use(express.json());// returns middleware that only parses JSON
 
 app.use(session({
-    secret: "cookinislife", //some random string
+    secret: "cookingislife", //some random string
     resave: false,
     saveUninitialized: false
 }));
@@ -55,9 +56,11 @@ app.use(session({
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
-// app.use('/users', usersController)
+app.use('/users', usersController);
 
-app.use('/recipes', recipeController)
+app.use('/recipes', recipeController);
+
+app.use('/sessions', sessionsController);
 
 
 //___________________
@@ -83,85 +86,39 @@ app.get('/', (req,res) =>{
    })
  })
 
- app.post('/users', (req,res) => {
-   User.create(req.body, (err, createdUser) => {
-     res.redirect('/users')
-   })
- })
+ // app.post('/users', (req,res) => {
+ //   User.create(req.body, (err, createdUser) => {
+ //     res.redirect('/users')
+ //   })
+ // })
 
- app.post('/sessions', (req,res) => {
-   User.findOne({username: req.body.username}, (err, foundUser) => {
-     if (req.body.password == foundUser.password){
-       req.session.currentUser == foundUser;
-       res.redirect('users.ejs');
-     }else {
-       res.send('wrong password')
-     }
-   })
- })
+ // app.post('/sessions', (req,res) => {
+ //   User.findOne({username: req.body.username}, (err, foundUser) => {
+ //     if (req.body.password == foundUser.password){
+ //       req.session.currentUser == foundUser;
+ //       res.redirect('users.ejs');
+ //     }else {
+ //       res.send('wrong password')
+ //     }
+ //   })
+ // })
 
- app.get('/users/new', (req,res) => {
-   res.render('users/new.ejs')
- })
+ // app.get('/users/new', (req,res) => {
+ //   res.render('users/new.ejs')
+ // })
 
-app.get('/sessions/login', (req,res) => {
-  res.render('users/login.ejs')
-})
-
-// app.get('/recipes', (req,res) => {
-//   Recipe.find({}, (err, allRecipes) => {
-//     res.render('index.ejs', {
-//       recipes: allRecipes
-//     })
-//   })
-// });
-//
-// app.get('/recipes/new', (req,res) => {
-//   res.render('new.ejs')
-// });
-//
-// app.post('/recipes', (req,res) => {
-//   Recipe.create(req.body, (err, createdRecipe) => {
-//     console.log(err);
-//     console.log(req.body);
-//     res.redirect('/recipes')
-//   })
-// })
-//
-// app.get('/recipes/:id', (req,res) => {
-//   Recipe.findById(req.params.id, (err, theRecipe) => {
-//     res.render('show.ejs', {
-//       recipes: theRecipe
-//     })
-//   })
+// app.get('/sessions/login', (req,res) => {
+//   res.render('users/login.ejs')
 // })
 
-app.delete('/', (req, res) => {
-    req.session.destroy(()=>{
-        res.redirect('/sizzle');
-    });
-})
 
-// app.delete('/recipes/:id',(req,res) => {
-//   Recipe.findByIdAndRemove(req.params.id, (err, data) => {
-//     res.redirect('/recipes')
-//   })
-// })
-//
-// app.get('/recipes/:id/edit', (req,res) => {
-//   Recipe.findById(req.params.id,(err,theRecipe) => {
-//     res.render('edit.ejs', {
-//       recipes: theRecipe
-//     })
-//   })
-// })
-//
-// app.put('/recipes/:id', (req, res)=>{
-//     Recipe.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-//         res.redirect('/recipes');
+// app.delete('/', (req, res) => {
+//     req.session.destroy(()=>{
+//         res.redirect('/sizzle');
 //     });
-// });
-//
+// })
+
+
 
 
 

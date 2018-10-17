@@ -31,7 +31,7 @@ h1{
 input{
   margin-top: 22px;
 }
-input[type=email]{
+input[type=text]{
   background: rgba(3, 18, 17, 0.61);
   border: 1px solid rgb(246, 227, 185);
   color: white;
@@ -44,7 +44,7 @@ input[type=password]{
   font-size: 16px;
 }
 
-input[type=email]:hover{
+input[type=text]:hover{
   font-size: 18px;
   background: black;
   border: 2px solid rgb(76,1,11) ;

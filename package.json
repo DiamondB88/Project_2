@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DiamondB88/Project_2#readme",
   "dependencies": {
+    "bcrypt": "^2.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
